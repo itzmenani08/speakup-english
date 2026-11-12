@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Daily English | SpeakUp</title>
 
 <style>
@@ -10,142 +11,262 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 body {
-    background: #f5f7ff;
+    background: #f5f7fc;
     color: #172554;
 }
 
 header {
     background: white;
-    padding: 20px 8%;
+    padding: 20px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px #00000008;
+    box-shadow: 0 3px 15px #00000008;
 }
 
 .logo {
     color: #2563eb;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 27px;
+    font-weight: 800;
 }
 
 header a {
     text-decoration: none;
     color: #2563eb;
+    font-weight: 600;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
-    padding: 40px 20px;
+    padding: 35px 20px;
 }
 
-.welcome {
-    background: linear-gradient(120deg, #2563eb, #7c3aed);
-    padding: 40px;
+.hero {
+    background: linear-gradient(120deg,#1d4ed8,#6366f1);
     color: white;
-    border-radius: 20px;
+    padding: 45px;
+    border-radius: 22px;
+    margin-bottom: 30px;
 }
 
-.welcome h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
 }
 
-.welcome p {
-    line-height: 1.7;
+.hero p {
+    line-height: 1.8;
+    opacity: .95;
 }
 
-h2 {
-    margin: 35px 0 20px;
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.stat {
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px #00000008;
+}
+
+.stat h2 {
+    color: #2563eb;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    margin: 40px 0 20px;
+    font-size: 25px;
+}
+
+.levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 18px;
+}
+
+.level {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 22px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.level:hover,.level.active {
+    border-color: #2563eb;
+    transform: translateY(-4px);
+}
+
+.level h3 {
+    margin-bottom: 10px;
+}
+
+.level p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.level.active {
+    background: #eff6ff;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
     gap: 20px;
 }
 
 .card {
     background: white;
     padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px #00000008;
+    border-radius: 16px;
+    box-shadow: 0 3px 18px #00000008;
 }
 
 .card h3 {
-    margin-bottom: 15px;
     color: #2563eb;
+    margin-bottom: 14px;
 }
 
 .word {
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.word:last-child {
+    border: none;
+}
+
+.word b {
+    font-size: 17px;
+}
+
+.word p {
+    color: #64748b;
+    margin-top: 5px;
     line-height: 1.6;
 }
 
 button {
+    border: none;
     background: #2563eb;
     color: white;
-    border: none;
-    padding: 12px 20px;
+    padding: 11px 18px;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 12px;
+    font-size: 14px;
 }
 
 button:hover {
     background: #1d4ed8;
 }
 
-.quiz {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    margin-top: 20px;
+.light-btn {
+    background: #eff6ff;
+    color: #2563eb;
 }
 
-.option {
+.light-btn:hover {
+    background: #dbeafe;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    margin: 0;
+}
+
+.tabs button.active {
+    background: #172554;
+}
+
+.practice-item {
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+    line-height: 1.8;
+}
+
+.quiz-option {
     display: block;
     width: 100%;
     text-align: left;
     background: #eff6ff;
     color: #172554;
+    margin-top: 10px;
 }
 
-#result {
+.quiz-option:disabled {
+    opacity: 1;
+    cursor: default;
+}
+
+#quizResult {
     margin-top: 15px;
     font-weight: bold;
 }
 
 .progress {
-    background: #e5e7eb;
     height: 12px;
+    background: #e5e7eb;
     border-radius: 20px;
-    margin-top: 15px;
     overflow: hidden;
+    margin: 15px 0;
 }
 
 #progressBar {
-    width: 0%;
     height: 100%;
+    width: 0%;
     background: #2563eb;
-    transition: 0.3s;
+    transition: .4s;
+}
+
+.speak-box {
+    background: #eff6ff;
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.8;
 }
 
 footer {
     text-align: center;
-    padding: 25px;
-    color: #64748b;
+    padding: 30px;
+    background: #172554;
+    color: white;
+    margin-top: 50px;
 }
 
-@media(max-width: 600px) {
-    .welcome h1 {
-        font-size: 25px;
+.hidden {
+    display: none;
+}
+
+@media(max-width:600px) {
+    .hero {
+        padding: 30px 22px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    header {
+        padding: 18px 5%;
     }
 }
 </style>
@@ -158,118 +279,427 @@ footer {
     <a href="index.html">← Back to Home</a>
 </header>
 
-<div class="container">
+<main class="container">
 
-    <section class="welcome">
-        <h1>Daily English Practice 📚</h1>
-        <p>Learn something new every day.</p>
-        <p>Small steps today, confident English tomorrow!</p>
-    </section>
+<section class="hero">
+    <h1>Improve Your English Every Day. 🚀</h1>
+    <p>
+        Learn new vocabulary, improve communication,
+        practice speaking and become confident.
+    </p>
+    <p style="margin-top:15px">
+        Your English journey starts with one small step.
+    </p>
+</section>
 
-    <h2>📖 Today's 5 New Words</h2>
+<div class="stats">
 
-    <div class="grid">
-        <div class="card">
-            <h3>Word of the Day</h3>
-            <div class="word"><b>Confident</b><br>Meaning: నమ్మకంగా<br>Example: I am confident.</div>
-            <div class="word"><b>Improve</b><br>Meaning: మెరుగుపరచడం<br>Example: I want to improve my English.</div>
-            <div class="word"><b>Practice</b><br>Meaning: సాధన<br>Example: Practice every day.</div>
-            <div class="word"><b>Achieve</b><br>Meaning: సాధించడం<br>Example: I can achieve my goals.</div>
-            <div class="word"><b>Express</b><br>Meaning: వ్యక్తపరచడం<br>Example: Express your thoughts.</div>
-        </div>
-
-        <div class="card">
-            <h3>💬 Daily Sentences</h3>
-            <div class="word">1. How are you doing?<br>నువ్వు ఎలా ఉన్నావు?</div>
-            <div class="word">2. I am learning English.<br>నేను ఇంగ్లీష్ నేర్చుకుంటున్నాను.</div>
-            <div class="word">3. Could you help me?<br>నాకు సహాయం చేయగలరా?</div>
-            <div class="word">4. I will try my best.<br>నేను నా వంతు ప్రయత్నం చేస్తాను.</div>
-            <div class="word">5. Give me a moment.<br>నాకు కొంచెం సమయం ఇవ్వండి.</div>
-        </div>
+    <div class="stat">
+        <h2 id="wordsCount">0</h2>
+        <p>Words Learned</p>
     </div>
 
-    <h2>📝 Basic Grammar</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Simple Present Tense</h3>
-            <p>Used for daily habits and regular actions.</p><br>
-            <b>Example:</b><br>
-            I go to college every day.
-        </div>
-
-        <div class="card">
-            <h3>Simple Past Tense</h3>
-            <p>Used for completed actions in the past.</p><br>
-            <b>Example:</b><br>
-            I watched a movie yesterday.
-        </div>
-
-        <div class="card">
-            <h3>Simple Future Tense</h3>
-            <p>Used for future actions.</p><br>
-            <b>Example:</b><br>
-            I will learn English.
-        </div>
+    <div class="stat">
+        <h2 id="quizCount">0</h2>
+        <p>Quizzes Completed</p>
     </div>
 
-    <h2>🎯 Test Your English</h2>
-
-    <div class="quiz">
-        <h3 id="question">Question 1: What is the meaning of Confident?</h3>
-
-        <div id="options"></div>
-
-        <p id="result"></p>
-
-        <button id="nextBtn" onclick="nextQuestion()" style="display:none;">
-            Next Question →
-        </button>
-    </div>
-
-    <h2>⭐ Your Learning Progress</h2>
-
-    <div class="card">
-        <p id="score">Quiz completed: 0 / 5</p>
-        <div class="progress">
-            <div id="progressBar"></div>
-        </div>
-        <p style="margin-top:15px;" id="message">Start your quiz to track progress!</p>
+    <div class="stat">
+        <h2 id="bestScore">0%</h2>
+        <p>Best Quiz Score</p>
     </div>
 
 </div>
 
+<h2 class="section-title">Choose Your English Level</h2>
+
+<div class="levels">
+
+    <div class="level" onclick="changeLevel('beginner',this)">
+        <h3>🟢 Beginner</h3>
+        <p>Build your foundation and learn everyday communication.</p>
+    </div>
+
+    <div class="level active" onclick="changeLevel('intermediate',this)">
+        <h3>🔵 Intermediate</h3>
+        <p>Improve vocabulary, fluency and sentence formation.</p>
+    </div>
+
+    <div class="level" onclick="changeLevel('advanced',this)">
+        <h3>🟣 Advanced</h3>
+        <p>Master professional English and powerful communication.</p>
+    </div>
+
+</div>
+
+<h2 class="section-title">📚 Vocabulary Builder</h2>
+
+<div class="card">
+
+    <h3>Today's Vocabulary</h3>
+
+    <div id="vocabulary"></div>
+
+    <button onclick="markLearned()">✓ Mark Words as Learned</button>
+
+    <p id="wordMessage" style="margin-top:12px"></p>
+
+</div>
+
+<h2 class="section-title">💬 Real-Life Communication</h2>
+
+<div class="card">
+
+    <div class="tabs">
+        <button onclick="showConversation('college',this)" class="active">College</button>
+        <button onclick="showConversation('friends',this)">Friends</button>
+        <button onclick="showConversation('professional',this)">Professional</button>
+    </div>
+
+    <div id="conversation"></div>
+
+</div>
+
+<h2 class="section-title">🎤 Speaking Practice</h2>
+
+<div class="card">
+
+    <h3>Today's Speaking Challenge</h3>
+
+    <div class="speak-box">
+        <h3 id="speakingTopic">Introduce yourself confidently.</h3>
+
+        <p>
+            Speak for 60 seconds without stopping.
+            Don't worry about grammar mistakes.
+        </p>
+    </div>
+
+    <button onclick="newTopic()">New Topic ↻</button>
+    <button class="light-btn" onclick="startTimer()">Start 60 Second Timer</button>
+
+    <h2 id="timer">01:00</h2>
+
+    <button onclick="speakTopic()">🔊 Listen to Topic</button>
+
+</div>
+
+<h2 class="section-title">🎓 Presentation Master</h2>
+
+<div class="grid">
+
+    <div class="card">
+        <h3>1. Opening a Presentation</h3>
+        <p>"Good morning everyone. Today, I am going to present a topic that is very important."</p>
+    </div>
+
+    <div class="card">
+        <h3>2. Explaining a Slide</h3>
+        <p>"Let's take a closer look at this point. This explains how the process works."</p>
+    </div>
+
+    <div class="card">
+        <h3>3. Sharing an Opinion</h3>
+        <p>"In my opinion, this approach can make a significant difference."</p>
+    </div>
+
+    <div class="card">
+        <h3>4. Ending a Presentation</h3>
+        <p>"That brings me to the end of my presentation. Thank you for your attention."</p>
+    </div>
+
+    <div class="card">
+        <h3>5. When You Forget Something</h3>
+        <p>"Let me take a moment to organize my thoughts."</p>
+    </div>
+
+    <div class="card">
+        <h3>6. Answering Questions</h3>
+        <p>"That's an interesting question. Let me explain my understanding."</p>
+    </div>
+
+</div>
+
+<h2 class="section-title">🧠 Test Your Knowledge</h2>
+
+<div class="card">
+
+    <h3 id="question">Question</h3>
+
+    <div id="options"></div>
+
+    <p id="quizResult"></p>
+
+    <button id="nextBtn" onclick="nextQuestion()" class="hidden">
+        Next Question →
+    </button>
+
+    <button id="restartBtn" onclick="restartQuiz()" class="hidden">
+        Try Again ↻
+    </button>
+
+</div>
+
+<h2 class="section-title">⭐ Your Learning Progress</h2>
+
+<div class="card">
+
+    <h3>Keep Moving Forward!</h3>
+
+    <p id="progressText">You have completed 0% of your learning activities.</p>
+
+    <div class="progress">
+        <div id="progressBar"></div>
+    </div>
+
+    <p>Every day is a new opportunity to improve.</p>
+
+</div>
+
+</main>
+
 <footer>
-    © 2026 SpeakUp. Learn. Speak. Shine. 💙
+    <h3>SpeakUp. Learn. Speak. Shine.</h3>
+    <p style="margin-top:10px">Believe in yourself. Your voice matters. 💙</p>
 </footer>
 
 <script>
-const questions = [
-    {
-        q: "What is the meaning of Confident?",
-        options: ["Afraid", "Self-assured", "Angry", "Sad"],
-        answer: "Self-assured"
-    },
-    {
-        q: "Choose the correct sentence.",
-        options: ["I am go to college", "I going college", "I go to college", "I goes college"],
-        answer: "I go to college"
-    },
-    {
-        q: "What is the past tense of Eat?",
-        options: ["Eated", "Eating", "Ate", "Eats"],
-        answer: "Ate"
-    },
-    {
-        q: "What does Improve mean?",
-        options: ["Make better", "Forget", "Stop", "Sleep"],
-        answer: "Make better"
-    },
-    {
-        q: "Choose the correct sentence.",
-        options: ["She are happy", "She is happy", "She am happy", "She be happy"],
-        answer: "She is happy"
+
+const vocabularyData = {
+
+beginner: [
+["Curious","Wanting to learn something","I am curious about technology."],
+["Reliable","Someone you can trust","She is a reliable person."],
+["Confident","Believing in yourself","I feel confident today."],
+["Improve","To make something better","I want to improve my English."],
+["Opportunity","A chance to do something","This is a great opportunity."],
+["Explain","To make something clear","Can you explain this topic?"],
+["Effort","Hard work","Your effort will bring results."],
+["Decision","A choice","I made my decision."],
+["Achieve","To successfully reach a goal","I want to achieve my goals."],
+["Express","To communicate your thoughts","Express your ideas clearly."]
+],
+
+intermediate: [
+["Hesitate","To pause because of uncertainty","Never hesitate to ask questions."],
+["Elaborate","To explain something in more detail","Could you elaborate on that point?"],
+["Perspective","A particular way of viewing something","I understand your perspective."],
+["Nevertheless","Despite what was just mentioned","It was difficult; nevertheless, we succeeded."],
+["Significant","Important or meaningful","Communication plays a significant role."],
+["Appreciate","To recognize the value of something","I appreciate your support."],
+["Consequently","As a result of something","He practised daily; consequently, he improved."],
+["Efficient","Working well without wasting time","We need an efficient solution."],
+["Clarify","To make something easier to understand","Let me clarify my point."],
+["Adapt","To adjust to a new situation","We must adapt to changes."]
+],
+
+advanced: [
+["Articulate","Able to express ideas clearly","She is an articulate speaker."],
+["Meticulous","Very careful about details","He is meticulous in his work."],
+["Compelling","Very convincing or interesting","She gave a compelling argument."],
+["Ambiguous","Having more than one possible meaning","The instructions were ambiguous."],
+["Substantiate","To support a claim with evidence","You must substantiate your argument."],
+["Pragmatic","Focused on practical solutions","We need a pragmatic approach."],
+["Resilient","Able to recover from difficulties","Stay resilient during challenges."],
+["Inevitable","Certain to happen","Change is inevitable."],
+["Comprehensive","Complete and detailed","We need a comprehensive analysis."],
+["Convey","To communicate an idea or feeling","Convey your thoughts clearly."]
+]
+
+};
+
+let selectedLevel = "intermediate";
+
+function loadVocabulary() {
+
+    const area = document.getElementById("vocabulary");
+
+    area.innerHTML = "";
+
+    vocabularyData[selectedLevel].forEach((word,index) => {
+
+        area.innerHTML += `
+        <div class="word">
+            <b>${index+1}. ${word[0]}</b>
+            <button class="light-btn" onclick="speakWord('${word[0]}')">🔊</button>
+            <p>${word[1]}</p>
+            <p><i>Example: ${word[2]}</i></p>
+        </div>`;
+
+    });
+
+}
+
+function changeLevel(level,element) {
+
+    selectedLevel = level;
+
+    document.querySelectorAll(".level").forEach(x => x.classList.remove("active"));
+
+    element.classList.add("active");
+
+    loadVocabulary();
+
+}
+
+function speakWord(word) {
+
+    if (!("speechSynthesis" in window)) {
+        alert("Speech is not supported in this browser.");
+        return;
     }
+
+    const speech = new SpeechSynthesisUtterance(word);
+
+    speech.lang = "en-US";
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+
+}
+
+function markLearned() {
+
+    localStorage.setItem("wordsLearned",vocabularyData[selectedLevel].length);
+
+    document.getElementById("wordsCount").textContent =
+    vocabularyData[selectedLevel].length;
+
+    document.getElementById("wordMessage").textContent =
+    "Excellent! You completed today's vocabulary! 🎉";
+
+    updateProgress();
+
+}
+
+const conversations = {
+
+college: [
+["Friend:","Hey, how is your preparation going?"],
+["You:","I'm working on it. I still need to cover a few topics."],
+["Friend:","Do you need any help?"],
+["You:","That would be really helpful. Thanks!"]
+],
+
+friends: [
+["Friend:","What are your plans for this weekend?"],
+["You:","I'm thinking of going somewhere interesting."],
+["Friend:","That sounds exciting!"],
+["You:","Yes! Let's plan something together."]
+],
+
+professional: [
+["Interviewer:","Can you tell me about yourself?"],
+["You:","Certainly. I am a computer science student interested in software development."],
+["Interviewer:","What are your strengths?"],
+["You:","I am eager to learn, adaptable and committed to improving my skills."]
+]
+
+};
+
+function showConversation(type,button) {
+
+    document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document.getElementById("conversation").innerHTML =
+    conversations[type].map(item=>`
+    <div class="practice-item">
+    <b>${item[0]}</b> ${item[1]}
+    </div>`).join("");
+
+}
+
+const topics = [
+"Introduce yourself confidently.",
+"Talk about your biggest dream.",
+"Explain why learning English is important.",
+"Describe your favourite technology.",
+"Talk about a challenge you overcame.",
+"If you become a team leader, what will you do?",
+"Explain your favourite movie.",
+"Talk about your future career goals.",
+"Should students learn practical skills?",
+"Describe a person who inspires you."
+];
+
+function newTopic() {
+
+    const topic = topics[Math.floor(Math.random()*topics.length)];
+
+    document.getElementById("speakingTopic").textContent = topic;
+
+}
+
+function speakTopic() {
+
+    const text = document.getElementById("speakingTopic").textContent;
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+
+}
+
+let timerInterval;
+
+function startTimer() {
+
+    clearInterval(timerInterval);
+
+    let seconds = 60;
+
+    document.getElementById("timer").textContent = "01:00";
+
+    timerInterval = setInterval(() => {
+
+        seconds--;
+
+        document.getElementById("timer").textContent =
+        "00:" + String(seconds).padStart(2,"0");
+
+        if(seconds <= 0) {
+
+            clearInterval(timerInterval);
+
+            document.getElementById("timer").textContent = "Time's up! 🎉";
+
+        }
+
+    },1000);
+
+}
+
+const questions = [
+{
+q:"Choose the correct use of 'Nevertheless'.",
+o:["I was tired; nevertheless, I continued.","Nevertheless I am go.","I nevertheless yesterday.","I was nevertheless go."],
+a:0
+},
+{
+q:"What does 'Elaborate' mean?",
+o:["To ignore something","To explain in more detail","To forget something","To reject something"],
+a:1
+},
+{
+q:"Choose the grammatically correct sentence.",
+o:["She have completed her work.","She has completed her work.","She completing her work.","She complete her work."],
+a:1
+},
+{
+q:"What is the meaning of 'Meticulous'?",
+o:["Careless","Angry","Very careful about details","Confused"],
+a:2
+},
+{
+q:"Choose the most professional expression.",
+o:["I don't know anything.","That's not my problem.","Could you please clarify the question?","Whatever you say."],
+a:2
+}
 ];
 
 let current = 0;
@@ -277,75 +707,171 @@ let score = 0;
 let answered = false;
 
 function loadQuestion() {
+
     answered = false;
 
     const q = questions[current];
 
     document.getElementById("question").textContent =
-        "Question " + (current + 1) + ": " + q.q;
+    "Question " + (current+1) + " of 5: " + q.q;
 
     document.getElementById("options").innerHTML = "";
 
-    document.getElementById("result").textContent = "";
+    document.getElementById("quizResult").textContent = "";
 
-    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("nextBtn").classList.add("hidden");
 
-    q.options.forEach(option => {
+    q.o.forEach((option,index)=>{
+
         const btn = document.createElement("button");
-        btn.className = "option";
+
+        btn.className = "quiz-option";
+
         btn.textContent = option;
-        btn.onclick = () => checkAnswer(option, btn);
+
+        btn.onclick = () => checkAnswer(index);
+
         document.getElementById("options").appendChild(btn);
+
     });
+
 }
 
-function checkAnswer(option, btn) {
-    if (answered) return;
+function checkAnswer(index) {
+
+    if(answered) return;
 
     answered = true;
 
-    if (option === questions[current].answer) {
+    const correct = questions[current].a;
+
+    if(index === correct) {
+
         score++;
-        document.getElementById("result").textContent = "Correct! Great job! 🎉";
+
+        document.getElementById("quizResult").textContent =
+        "Correct! Excellent work! 🎉";
+
     } else {
-        document.getElementById("result").textContent =
-            "Incorrect! Correct answer: " + questions[current].answer;
+
+        document.getElementById("quizResult").textContent =
+        "Not quite! Correct answer: " + questions[current].o[correct];
+
     }
 
-    document.getElementById("score").textContent =
-        "Quiz completed: " + (current + 1) + " / 5";
+    document.querySelectorAll(".quiz-option").forEach(btn=>{
+        btn.disabled = true;
+    });
 
-    document.getElementById("progressBar").style.width =
-        ((current + 1) / 5 * 100) + "%";
+    document.getElementById("nextBtn").classList.remove("hidden");
 
-    document.getElementById("message").textContent =
-        "Your score: " + score + " / " + (current + 1);
+    if(current === questions.length-1) {
 
-    document.getElementById("nextBtn").style.display = "inline-block";
-
-    if (current === 4) {
         document.getElementById("nextBtn").textContent = "See My Result";
+
     }
+
 }
 
 function nextQuestion() {
-    if (!answered) return;
 
-    if (current < 4) {
+    if(!answered) return;
+
+    if(current < questions.length-1) {
+
         current++;
+
         loadQuestion();
+
     } else {
-        document.getElementById("question").textContent = "Quiz Completed! 🎉";
-        document.getElementById("options").innerHTML = "";
-        document.getElementById("result").textContent =
-            "Your final score is " + score + " out of 5.";
-        document.getElementById("nextBtn").style.display = "none";
-        document.getElementById("message").textContent =
-            score >= 4 ? "Excellent work! Keep learning! 🌟" : "Good effort! Practice and try again! 💙";
+
+        finishQuiz();
+
     }
+
 }
 
+function finishQuiz() {
+
+    const percent = Math.round(score/questions.length*100);
+
+    let oldBest = Number(localStorage.getItem("bestScore") || 0);
+
+    localStorage.setItem("bestScore",Math.max(percent,oldBest));
+
+    let completed = Number(localStorage.getItem("quizCount") || 0)+1;
+
+    localStorage.setItem("quizCount",completed);
+
+    document.getElementById("question").textContent =
+    "Your Quiz Result 🎉";
+
+    document.getElementById("options").innerHTML = "";
+
+    document.getElementById("quizResult").textContent =
+    "You scored " + score + " out of 5 (" + percent + "%). " +
+    (percent >= 80 ? "Excellent! 🌟" : "Keep practising! 💙");
+
+    document.getElementById("nextBtn").classList.add("hidden");
+
+    document.getElementById("restartBtn").classList.remove("hidden");
+
+    document.getElementById("quizCount").textContent = completed;
+
+    document.getElementById("bestScore").textContent =
+    Math.max(percent,oldBest)+"%";
+
+    localStorage.setItem("quizProgress",100);
+
+    updateProgress();
+
+}
+
+function restartQuiz() {
+
+    current = 0;
+    score = 0;
+
+    document.getElementById("restartBtn").classList.add("hidden");
+
+    loadQuestion();
+
+}
+
+function updateProgress() {
+
+    const words = Number(localStorage.getItem("wordsLearned") || 0) > 0;
+    const quiz = Number(localStorage.getItem("quizProgress") || 0) > 0;
+
+    const progress = (Number(words)+Number(quiz))*50;
+
+    document.getElementById("progressBar").style.width = progress+"%";
+
+    document.getElementById("progressText").textContent =
+    "You have completed "+progress+"% of your learning activities.";
+
+}
+
+function loadStats() {
+
+    document.getElementById("wordsCount").textContent =
+    localStorage.getItem("wordsLearned") || 0;
+
+    document.getElementById("quizCount").textContent =
+    localStorage.getItem("quizCount") || 0;
+
+    document.getElementById("bestScore").textContent =
+    (localStorage.getItem("bestScore") || 0)+"%";
+
+    updateProgress();
+
+}
+
+loadVocabulary();
+showConversation("college",document.querySelector(".tabs button"));
 loadQuestion();
+loadStats();
+
 </script>
 
 </body>
