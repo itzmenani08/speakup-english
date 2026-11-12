@@ -1,1 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakUp - Learn. Speak. Shine.</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f9ff;
+            color: #172554;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: white;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #334155;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #e0eaff, #f5f3ff);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .section {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #64748b;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card h3 {
+            margin: 15px 0;
+        }
+
+        .card p {
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .icon {
+            font-size: 35px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #172554;
+            color: white;
+        }
+
+        @media(max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 7px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SpeakUp.</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#learn">Learn</a>
+        <a href="#practice">Practice</a>
+        <a href="#confidence">Confidence</a>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+
+    <h1>Speak English with <span>Confidence.</span></h1>
+
+    <p>
+        Learn English step by step.<br>
+        Improve your communication.<br>
+        Face every presentation without fear.
+    </p>
+
+    <a href="#learn" class="btn">Start Learning →</a>
+
+</section>
+
+<section class="section" id="learn">
+
+    <h2>What do you want to improve?</h2>
+
+    <p>Choose your learning journey and start today.</p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Daily English</h3>
+            <p>Learn new words, sentences and basic grammar every day.</p>
+        </div>
+
+        <div class="card" id="practice">
+            <div class="icon">🗣️</div>
+            <h3>Speaking Practice</h3>
+            <p>Practice everyday conversations and improve your English.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎤</div>
+            <h3>Presentation Master</h3>
+            <p>Learn how to speak in front of people without fear.</p>
+        </div>
+
+        <div class="card" id="confidence">
+            <div class="icon">🚀</div>
+            <h3>Confidence Zone</h3>
+            <p>Build confidence, improve communication and express yourself.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 SpeakUp. Learn. Speak. Shine.</p>
+    <p style="margin-top:10px;">Your journey to confidence starts here. 💙</p>
+</footer>
+
+</body>
+</html>
